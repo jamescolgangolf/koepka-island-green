@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On An Island – Brooks Koepka at the 17th</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,700&family=Barlow:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #07201c;
+    --navy-mid: #091f1b;
+    --navy-card: #0d2820;
+    --navy-border: #1a3d33;
+    --teal: #00c2a8;
+    --teal-dim: #009e88;
+    --teal-glow: rgba(0,194,168,0.15);
+    --gold: #e8b84b;
+    --gold-dim: #c49a2e;
+    --red: #e85c4b;
+    --red-dim: #c43e2e;
+    --white: #f0f4fa;
+    --white-dim: #8aac9e;
+    --white-faint: #3a5c50;
+    --water: #0a2e26;
+    --green-fairway: #0f3328;
+    --green-putting: #1a5c3a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ───────────────────────── */
+  .header {
+    padding: 48px 40px 32px;
+    border-bottom: 1px solid var(--navy-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '17';
+    position: absolute;
+    right: -20px; top: -30px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 280px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .main-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .main-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .subhead {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--white-dim);
+    max-width: 520px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .byline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--white-faint);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  /* ── LAYOUT ───────────────────────── */
+  .content {
+    padding: 0 40px 60px;
+    max-width: 1200px;
+  }
+
+  /* ── STAT PILLS ───────────────────── */
+  .stats-row {
+    display: flex;
+    gap: 2px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    flex: 1;
+    min-width: 140px;
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .stat-pill:first-child { border-radius: 6px 0 0 6px; }
+  .stat-pill:last-child  { border-radius: 0 6px 6px 0; }
+
+  .stat-pill::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent, var(--teal));
+  }
+
+  .stat-pill:hover { border-color: var(--teal); }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-sub {
+    font-size: 11px;
+    color: var(--white-dim);
+    margin-top: 4px;
+  }
+
+  /* ── SECTION DIVIDER ───────────────── */
+  .section {
+    margin-top: 40px;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--navy-border);
+  }
+
+  /* ── TWO-COLUMN LAYOUT ─────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 760px) {
+    .two-col { grid-template-columns: 1fr; }
+    .content { padding: 0 20px 40px; }
+    .header { padding: 32px 20px 24px; }
+    .stats-row .stat-pill:first-child,
+    .stats-row .stat-pill:last-child { border-radius: 0; }
+  }
+
+  /* ── SHOT MAP ──────────────────────── */
+  .shot-map-container {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 6px 0 0 6px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shot-map-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-bottom: 16px;
+  }
+
+  .hole-svg-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 0.75;
+  }
+
+  /* ── YEAR TABLE ────────────────────── */
+  .year-table-container {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 0 6px 6px 0;
+    padding: 24px;
+    overflow: hidden;
+  }
+
+  .year-table-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-bottom: 16px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    padding: 0 8px 8px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--navy-border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(28,42,66,0.5);
+    transition: background 0.15s;
+    cursor: default;
+  }
+
+  tbody tr:hover { background: rgba(0,194,168,0.04); }
+
+  tbody td {
+    padding: 7px 8px 7px 0;
+    color: var(--white-dim);
+    font-size: 12px;
+  }
+
+  tbody td:first-child { color: var(--white); font-weight: 400; }
+
+  .score-cell {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .score-birdie { color: var(--teal); }
+  .score-par    { color: var(--white-dim); }
+  .score-bogey  { color: var(--gold); }
+  .score-double { color: var(--red); }
+  .score-triple { color: #ff2a4a; }
+
+  .water-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(232,92,75,0.15);
+    border: 1px solid rgba(232,92,75,0.3);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  .score-chart-container {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 2px;
+  }
+
+  .chart-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-bottom: 20px;
+  }
+
+  .bar-chart-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .bar-chart-inner {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    gap: 4px;
+    align-items: end;
+    min-width: 560px;
+    position: relative;
+  }
+
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .bar-segment {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    transition: opacity 0.2s;
+    cursor: pointer;
+  }
+
+  .bar-segment:hover { opacity: 0.75; }
+
+  .bar-score-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 4px;
+    line-height: 1;
+  }
+
+  .bar-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5px;
+    color: var(--white-faint);
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 3px;
+    line-height: 1.2;
+  }
+
+  .par-line-wrap {
+    position: relative;
+    grid-column: 1 / -1;
+    pointer-events: none;
+  }
+
+  /* ── TOOLTIP ──────────────────────── */
+  .tooltip {
+    position: fixed;
+    background: var(--navy-card);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.15s;
+    min-width: 160px;
+  }
+
+  .tooltip.visible { opacity: 1; }
+
+  .tooltip-round {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .tooltip-score {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tooltip-detail {
+    color: var(--white-dim);
+    font-size: 11px;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ── CALLOUT ──────────────────────── */
+  .callout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .callout {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    padding: 20px;
+    border-left: 3px solid var(--accent, var(--teal));
+  }
+
+  .callout-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent, var(--teal));
+  }
+
+  .callout-text {
+    font-size: 12px;
+    color: var(--white-dim);
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+
+  /* ── FOOTER ───────────────────────── */
+  .footer {
+    padding: 20px 40px;
+    border-top: 1px solid var(--navy-border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--white-faint);
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── SHOT DOT ANIMATIONS ─────────────── */
+  @keyframes dotIn {
+    from { opacity: 0; transform: scale(0); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .shot-dot {
+    animation: dotIn 0.3s ease-out both;
+    cursor: pointer;
+    transition: r 0.2s;
+  }
+
+  .shot-dot:hover { r: 7; }
+
+  /* ── LEGEND ───────────────────────── */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--white-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 760px) {
+    .callout-grid { grid-template-columns: 1fr 1fr; }
+    .two-col      { grid-template-columns: 1fr; }
+    .shot-map-container { border-radius: 6px; }
+    .year-table-container { border-radius: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="eyebrow">Data Analysis · The Players Championship · TPC Sawgrass · Hole 17</div>
+  <h1 class="main-title">On An <em>Island</em></h1>
+  <p class="subhead">Inside Brooks Koepka's Island Green struggles at The Players</p>
+  <div class="byline">Data: PGA Tour ShotLink &nbsp;·&nbsp; 2015–2019</div>
+</header>
+
+<!-- STAT PILLS -->
+<div class="content">
+  <div class="stats-row">
+    <div class="stat-pill" style="--accent: var(--gold)">
+      <div class="stat-label">Avg Score</div>
+      <div class="stat-value" style="color:var(--gold)">3.76</div>
+      <div class="stat-sub">vs par 3 (+0.76 avg)</div>
+    </div>
+    <div class="stat-pill" style="--accent: var(--red)">
+      <div class="stat-label">Water Balls</div>
+      <div class="stat-value" style="color:var(--red)">7</div>
+      <div class="stat-sub">across 17 rounds played</div>
+    </div>
+    <div class="stat-pill" style="--accent: var(--teal)">
+      <div class="stat-label">Rounds Played</div>
+      <div class="stat-value">17</div>
+      <div class="stat-sub">2015 – 2019</div>
+    </div>
+    <div class="stat-pill" style="--accent: var(--teal-dim)">
+      <div class="stat-label">Best Score</div>
+      <div class="stat-value" style="color:var(--teal)">2</div>
+      <div class="stat-sub">birdie (2019 R1, 2018 R4)</div>
+    </div>
+    <div class="stat-pill" style="--accent: #ff2a4a">
+      <div class="stat-label">Worst Score</div>
+      <div class="stat-value" style="color:#ff2a4a">7</div>
+      <div class="stat-sub">triple+ bogey (×2)</div>
+    </div>
+  </div>
+
+  <!-- SCORE TIMELINE -->
+  <div class="section">
+    <div class="section-label">Score by Round</div>
+    <div class="score-chart-container">
+      <div class="chart-title">Hole 17 Score — Round by Round</div>
+      <div class="bar-chart-wrap">
+        <div id="barChartInner" class="bar-chart-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY FINDINGS + TABLE -->
+  <div class="section">
+    <div class="section-label">Key Findings &amp; Round Log</div>
+    <div class="two-col">
+
+      <!-- CALLOUTS -->
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div class="callout" style="--accent:var(--red);border-radius:6px 6px 0 0;">
+          <div class="callout-num" style="color:var(--red)">59%</div>
+          <div class="callout-text">of Koepka's 17 rounds resulted in a bogey or worse — he made par or better in just 7 of 17 trips to the island.</div>
+        </div>
+        <div class="callout" style="--accent:var(--gold);">
+          <div class="callout-num" style="color:var(--gold)">+13</div>
+          <div class="callout-text">Total strokes over par across 17 rounds — an average of +0.76 per round on a par-3 that typically plays around +0.1 for the field.</div>
+        </div>
+        <div class="callout" style="--accent:#8a63d2;">
+          <div class="callout-num" style="color:#8a63d2">2×</div>
+          <div class="callout-text">Koepka carded a 7 on the hole twice — in 2015 R1 and 2018 R2 — with multiple penalty strokes each time.</div>
+        </div>
+        <div class="callout" style="--accent:var(--red);border-radius:0 0 6px 6px;">
+          <div class="callout-num" style="color:var(--red)">7</div>
+          <div class="callout-text">Water balls in 17 rounds — Koepka found the lake surrounding the island green more than once per tournament on average.</div>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="year-table-container">
+        <div class="year-table-title">Round Log</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Year/Rnd</th>
+              <th>Drive</th>
+              <th>GIR</th>
+              <th>Putts</th>
+              <th>Score</th>
+              <th>Pen.</th>
+            </tr>
+          </thead>
+          <tbody id="roundTableBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>Source: PGA Tour ShotLink · The Players Championship 2015–2019 · Hole 17, TPC Sawgrass</span>
+
+</footer>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────
+const rounds = [
+  { year:2015, rnd:'R1', drive:120, gir:'N', putts:2, score:7, pen:2, fd:'1\' 9"', fw:'N-R',  note:'Double pen' },
+  { year:2015, rnd:'R2', drive:147, gir:'Y', putts:2, score:3, pen:0, fd:'1\' 2"', fw:'N-R',  note:'' },
+  { year:2016, rnd:'R1', drive:123, gir:'Y', putts:2, score:3, pen:0, fd:'2\' 8"', fw:'N-L',  note:'' },
+  { year:2016, rnd:'R2', drive:155, gir:'N', putts:1, score:4, pen:1, fd:'36\'3"', fw:'N',     note:'Long putt missed' },
+  { year:2016, rnd:'R3', drive:151, gir:'N', putts:3, score:6, pen:1, fd:'1\' 1"', fw:'N',     note:'Water ball' },
+  { year:2016, rnd:'R4', drive:135, gir:'Y', putts:2, score:3, pen:0, fd:'3\' 7"', fw:'N-R',  note:'' },
+  { year:2017, rnd:'R1', drive:120, gir:'N', putts:2, score:5, pen:1, fd:'6\' 3"', fw:'N',     note:'Penalty' },
+  { year:2017, rnd:'R2', drive:127, gir:'Y', putts:3, score:4, pen:0, fd:'2\' 2"', fw:'N-L',  note:'3-putt' },
+  { year:2017, rnd:'R3', drive:129, gir:'Y', putts:2, score:3, pen:0, fd:'2\' 6"', fw:'N-L',  note:'' },
+  { year:2017, rnd:'R4', drive:128, gir:'Y', putts:2, score:3, pen:0, fd:'3\'10"', fw:'N-R',  note:'' },
+  { year:2018, rnd:'R1', drive:128, gir:'Y', putts:2, score:3, pen:0, fd:'2\' 7"', fw:'N-L',  note:'' },
+  { year:2018, rnd:'R2', drive:158, gir:'N', putts:2, score:7, pen:2, fd:'1\' 9"', fw:'N',     note:'Double pen' },
+  { year:2018, rnd:'R3', drive:128, gir:'Y', putts:2, score:3, pen:0, fd:'1\'11"', fw:'N-L',  note:'' },
+  { year:2018, rnd:'R4', drive:131, gir:'Y', putts:1, score:2, pen:0, fd:'4\' 6"', fw:'N-R',  note:'Birdie!' },
+  { year:2019, rnd:'R1', drive:121, gir:'Y', putts:1, score:2, pen:0, fd:'2\'10"', fw:'N-L',  note:'Birdie!' },
+  { year:2019, rnd:'R2', drive:133, gir:'Y', putts:2, score:3, pen:0, fd:'8\' 6"', fw:'N-L',  note:'' },
+  { year:2019, rnd:'R3', drive:131, gir:'N', putts:1, score:3, pen:0, fd:'3\' 3"', fw:'N',     note:'' },
+];
+
+const scoreColor = s => {
+  if (s <= 2) return 'var(--teal)';
+  if (s === 3) return 'var(--white-dim)';
+  if (s === 4) return 'var(--gold)';
+  if (s === 5) return 'var(--gold)';
+  if (s === 6) return 'var(--red)';
+  return '#ff2a4a';
+};
+
+const scoreClass = s => {
+  if (s <= 2) return 'score-birdie';
+  if (s === 3) return 'score-par';
+  if (s === 4) return 'score-bogey';
+  if (s === 5) return 'score-bogey';
+  if (s === 6) return 'score-double';
+  return 'score-triple';
+};
+
+const scoreName = s => {
+  if (s === 2) return 'Birdie';
+  if (s === 3) return 'Par';
+  if (s === 4) return 'Bogey';
+  if (s === 5) return 'Double';
+  if (s === 6) return 'Triple';
+  return `+${s-3}`;
+};
+
+// ── BAR CHART ─────────────────────────────────────────────────
+function buildBarChart() {
+  const container = document.getElementById('barChartInner');
+  const maxScore  = 7;
+  const minScore  = 2;
+  const range     = maxScore - minScore;
+  const chartH    = 130; // px height for the bar area
+
+  rounds.forEach((r) => {
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+
+    const barH = Math.max(4, chartH * (r.score - minScore) / range);
+    const spacer = document.createElement('div');
+    spacer.style.height = (chartH - barH) + 'px'; // push bar down
+
+    const bar = document.createElement('div');
+    bar.className = 'bar-segment';
+    bar.style.height     = barH + 'px';
+    bar.style.background = scoreColor(r.score);
+    bar.style.opacity    = '0.85';
+    bar.style.width      = '100%';
+
+    bar.addEventListener('mouseenter', e => showTooltip(e, r));
+    bar.addEventListener('mousemove',  e => moveTooltip(e));
+    bar.addEventListener('mouseleave', hideTooltip);
+
+    const scoreL = document.createElement('div');
+    scoreL.className = 'bar-score-label ' + scoreClass(r.score);
+    scoreL.textContent = r.score;
+
+    const yearL = document.createElement('div');
+    yearL.className = 'bar-year';
+    yearL.innerHTML  = r.year + '<br>' + r.rnd;
+
+    col.appendChild(spacer);
+    col.appendChild(bar);
+    col.appendChild(scoreL);
+    col.appendChild(yearL);
+    container.appendChild(col);
+  });
+}
+
+// ── ROUND TABLE ───────────────────────────────────────────────
+function buildTable() {
+  const tbody = document.getElementById('roundTableBody');
+  rounds.forEach(r => {
+    const tr = document.createElement('tr');
+    const penHtml = r.pen > 0 ? `<span class="water-badge">+${r.pen} W</span>` : '–';
+    tr.innerHTML = `
+      <td>${r.year} ${r.rnd}</td>
+      <td>${r.drive} yds</td>
+      <td style="color:${r.gir==='Y'?'var(--teal)':'var(--red)'}">${r.gir}</td>
+      <td>${r.putts}</td>
+      <td class="score-cell ${scoreClass(r.score)}">${r.score}</td>
+      <td>${penHtml}</td>
+    `;
+    tr.addEventListener('mouseenter', e => showTooltip(e, r));
+    tr.addEventListener('mousemove',  e => moveTooltip(e));
+    tr.addEventListener('mouseleave', hideTooltip);
+    tbody.appendChild(tr);
+  });
+}
+
+// ── TOOLTIP ───────────────────────────────────────────────────
+const tip = document.getElementById('tooltip');
+
+function showTooltip(e, r) {
+  tip.innerHTML = `
+    <div class="tooltip-round">${r.year} · ${r.rnd}</div>
+    <div class="tooltip-score ${scoreClass(r.score)}">${r.score} — ${scoreName(r.score)}</div>
+    <div class="tooltip-detail">
+      Drive: ${r.drive} yds &nbsp;|&nbsp; GIR: ${r.gir}<br>
+      Putts: ${r.putts} &nbsp;|&nbsp; Fin. putt: ${r.fd}
+      ${r.pen > 0 ? `<br><span style="color:var(--red)">⚠ ${r.pen} penalty stroke(s)</span>` : ''}
+      ${r.note ? `<br>${r.note}` : ''}
+    </div>
+  `;
+  tip.classList.add('visible');
+  moveTooltip(e);
+}
+
+function moveTooltip(e) {
+  const x = e.clientX + 14, y = e.clientY + 14;
+  tip.style.left = Math.min(x, window.innerWidth - 200) + 'px';
+  tip.style.top  = Math.min(y, window.innerHeight - 140) + 'px';
+}
+
+function hideTooltip() {
+  tip.classList.remove('visible');
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+buildBarChart();
+buildTable();
+</script>
+</body>
+</html>
