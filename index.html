@@ -770,6 +770,15 @@ function hideTooltip() {
 // ── INIT ──────────────────────────────────────────────────────
 buildBarChart();
 buildTable();
+
+// ── AUTO-HEIGHT (postMessage to parent iframe) ────────────────
+function reportHeight() {
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({ iframeHeight: h }, '*');
+}
+window.addEventListener('load', reportHeight);
+window.addEventListener('resize', reportHeight);
+setTimeout(reportHeight, 300);
 </script>
 </body>
 </html>
