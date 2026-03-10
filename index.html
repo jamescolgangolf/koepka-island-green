@@ -333,10 +333,10 @@
 
   .bar-chart-inner {
     display: grid;
-    grid-template-columns: repeat(17, 1fr);
+    grid-template-columns: repeat(19, 1fr);
     gap: 4px;
     align-items: end;
-    min-width: 560px;
+    min-width: 620px;
     position: relative;
   }
 
@@ -521,7 +521,7 @@
   <div class="eyebrow">Data Analysis · The Players Championship · TPC Sawgrass · Hole 17</div>
   <h1 class="main-title">On An <em>Island</em></h1>
   <p class="subhead">Inside Brooks Koepka's Island Green struggles at The Players</p>
-  <div class="byline">Data: PGA Tour ShotLink &nbsp;·&nbsp; 2015–2019</div>
+  <div class="byline">Data: PGA Tour ShotLink &nbsp;·&nbsp; 2015–2022</div>
 </header>
 
 <!-- STAT PILLS -->
@@ -529,18 +529,18 @@
   <div class="stats-row">
     <div class="stat-pill" style="--accent: var(--gold)">
       <div class="stat-label">Avg Score</div>
-      <div class="stat-value" style="color:var(--gold)">3.76</div>
-      <div class="stat-sub">vs par 3 (+0.76 avg)</div>
+      <div class="stat-value" style="color:var(--gold)">3.95</div>
+      <div class="stat-sub">vs par 3 (+0.95 avg)</div>
     </div>
     <div class="stat-pill" style="--accent: var(--red)">
       <div class="stat-label">Water Balls</div>
-      <div class="stat-value" style="color:var(--red)">7</div>
-      <div class="stat-sub">across 17 rounds played</div>
+      <div class="stat-value" style="color:var(--red)">9</div>
+      <div class="stat-sub">across 19 rounds played</div>
     </div>
     <div class="stat-pill" style="--accent: var(--teal)">
       <div class="stat-label">Rounds Played</div>
-      <div class="stat-value">17</div>
-      <div class="stat-sub">2015 – 2019</div>
+      <div class="stat-value">19</div>
+      <div class="stat-sub">2015 – 2022</div>
     </div>
     <div class="stat-pill" style="--accent: var(--teal-dim)">
       <div class="stat-label">Best Score</div>
@@ -550,7 +550,7 @@
     <div class="stat-pill" style="--accent: #ff2a4a">
       <div class="stat-label">Worst Score</div>
       <div class="stat-value" style="color:#ff2a4a">7</div>
-      <div class="stat-sub">triple+ bogey (×2)</div>
+      <div class="stat-sub">quadruple bogey (×2)</div>
     </div>
   </div>
 
@@ -573,20 +573,20 @@
       <!-- CALLOUTS -->
       <div style="display:flex;flex-direction:column;gap:2px;">
         <div class="callout" style="--accent:var(--red);border-radius:6px 6px 0 0;">
-          <div class="callout-num" style="color:var(--red)">59%</div>
-          <div class="callout-text">of Koepka's 17 rounds resulted in a bogey or worse — he made par or better in just 7 of 17 trips to the island.</div>
+          <div class="callout-num" style="color:var(--red)">63%</div>
+          <div class="callout-text">of Koepka's 19 rounds resulted in a bogey or worse — he made par or better in just 7 of 19 trips to the island.</div>
         </div>
         <div class="callout" style="--accent:var(--gold);">
-          <div class="callout-num" style="color:var(--gold)">+13</div>
-          <div class="callout-text">Total strokes over par across 17 rounds — an average of +0.76 per round on a par-3 that typically plays around +0.1 for the field.</div>
+          <div class="callout-num" style="color:var(--gold)">+18</div>
+          <div class="callout-text">Total strokes over par across 19 rounds — an average of +0.95 per round on a par-3 that typically plays around +0.1 for the field.</div>
         </div>
         <div class="callout" style="--accent:#8a63d2;">
           <div class="callout-num" style="color:#8a63d2">2×</div>
           <div class="callout-text">Koepka carded a 7 on the hole twice — in 2015 R1 and 2018 R2 — with multiple penalty strokes each time.</div>
         </div>
         <div class="callout" style="--accent:var(--red);border-radius:0 0 6px 6px;">
-          <div class="callout-num" style="color:var(--red)">7</div>
-          <div class="callout-text">Water balls in 17 rounds — Koepka found the lake surrounding the island green more than once per tournament on average.</div>
+          <div class="callout-num" style="color:var(--red)">9</div>
+          <div class="callout-text">Water balls in 19 rounds — Koepka found the lake surrounding the island green more than once per tournament on average.</div>
         </div>
       </div>
 
@@ -617,7 +617,7 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <span>Source: PGA Tour ShotLink · The Players Championship 2015–2019 · Hole 17, TPC Sawgrass</span>
+  <span>Source: PGA Tour ShotLink · The Players Championship 2015–2022 · Hole 17, TPC Sawgrass</span>
 
 </footer>
 
@@ -644,6 +644,8 @@ const rounds = [
   { year:2019, rnd:'R1', drive:121, gir:'Y', putts:1, score:2, pen:0, fd:'2\'10"', fw:'N-L',  note:'Birdie!' },
   { year:2019, rnd:'R2', drive:133, gir:'Y', putts:2, score:3, pen:0, fd:'8\' 6"', fw:'N-L',  note:'' },
   { year:2019, rnd:'R3', drive:131, gir:'N', putts:1, score:3, pen:0, fd:'3\' 3"', fw:'N',     note:'' },
+  { year:2022, rnd:'R1', drive:137, gir:'N', putts:2, score:5, pen:1, fd:'–',      fw:'N',     note:'Water ball' },
+  { year:2022, rnd:'R2', drive:137, gir:'N', putts:2, score:6, pen:1, fd:'–',      fw:'N',     note:'Water ball' },
 ];
 
 const scoreColor = s => {
