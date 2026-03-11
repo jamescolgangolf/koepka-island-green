@@ -35,7 +35,6 @@
     color: var(--white);
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
-    min-height: 100vh;
     overflow-x: hidden;
   }
 
@@ -775,6 +774,12 @@ buildTable();
 function reportHeight() {
   const h = document.documentElement.scrollHeight;
   window.parent.postMessage({ iframeHeight: h }, '*');
+  // AMP-specific resize signal
+  window.parent.postMessage({
+    sentinel: 'amp',
+    type: 'embed-size',
+    height: h
+  }, '*');
 }
 window.addEventListener('load', reportHeight);
 window.addEventListener('resize', reportHeight);
